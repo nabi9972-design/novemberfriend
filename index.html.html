@@ -1,0 +1,63 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>11:11 마음을 더하다</title><style>:root{font-family:system-ui,'Malgun Gothic',sans-serif;color:#202536;background:#e9edf5}*{box-sizing:border-box}body{margin:0}.phone{max-width:460px;min-height:100dvh;margin:auto;background:#f9fafc;display:flex;flex-direction:column}.top{background:#fff;padding:18px 20px;border-bottom:1px solid #e8e8ee;display:flex;justify-content:space-between;align-items:center}.top b{font-size:18px}.tag{font-size:12px;color:#667085}.main{padding:22px;flex:1}.time{text-align:center;font-size:12px;color:#8a90a0;margin:10px 0 24px}.bubble{background:white;border-radius:18px 18px 18px 4px;padding:15px 17px;max-width:88%;line-height:1.7;box-shadow:0 3px 12px #28314b0c;margin:14px 0;white-space:pre-line}.mine{margin-left:auto;background:#dce7ff;border-radius:18px 18px 4px 18px}.choices{margin-top:32px;display:grid;gap:10px}button{font:inherit;cursor:pointer;border:1px solid #cfd8ec;background:white;border-radius:15px;padding:15px;text-align:left;color:#27344f;line-height:1.5}button:focus-visible{outline:3px solid #5479d9}button:hover{background:#eef3ff}button:disabled{opacity:.65;cursor:default}.primary{background:#334e91;color:white;text-align:center;border:0;font-weight:700}.primary:hover{background:#263f7e}.small{color:#6d7487;font-size:13px;line-height:1.7}.heading{font-size:25px;line-height:1.4;margin:12px 0}.pill{display:inline-block;border-radius:30px;background:#e4ebff;color:#344c86;padding:7px 12px;font-size:12px;font-weight:700}.feedback{background:#eef2fc;border-left:4px solid #6a83c5;border-radius:10px;padding:16px;line-height:1.75;margin-top:25px}.footer{padding:18px 22px 28px}.progress{height:5px;background:#e1e5ed}.bar{height:100%;background:#6c83c4;transition:width .2s}.certificate{background:white;border:1px solid #e1e5f0;border-radius:20px;text-align:center;padding:28px 20px;margin:22px 0;box-shadow:0 5px 25px #23325712}.code{font-size:27px;font-weight:800;letter-spacing:3px;margin:14px 0;color:#304c8e}.hide{display:none} .warn{font-size:12px;color:#656b7a}</style></head><body><div class="phone"><header class="top"><b>11:11 <span style="color:#657dbb">마음을 더하다</span></b><span class="tag" id="step">친구사랑주간</span></header><div class="progress"><div class="bar" id="bar" style="width:0%"></div></div><main class="main" id="screen" aria-live="polite"></main><footer class="footer" id="footer"></footer></div><script>
+
+const scenes=[
+{tag:'MISSION 1 · 나를 위한 마음',incoming:'서해',messages:['야, 혹시 어제 내가 보낸 메시지 봤어?','답이 없어서… 내가 뭘 잘못했나 싶었어.'],prompt:'서해의 메시지를 읽은 상담는 어떻게 답하면 좋을까?',choices:[
+['미안, 어제 정신이 없었어. 기다리게 해서 속상했겠다.','답장이 늦어진 이유를 설명하면서 상대가 기다리며 느꼈을 감정도 인정했어요. 사과는 무조건 잘못을 떠안는 것이 아니라, 내 행동이 상대에게 어떤 영향을 주었는지 살피는 표현일 수 있어요. 다음에는 “바쁠 땐 나중에 답할 수도 있어”처럼 서로의 연락 방식을 이야기해 봐도 좋아요.','서해: 아, 그랬구나. 사실 조금 걱정했어.'],
+['왜 답장 좀 늦었다고 그렇게 생각해?','답장이 늦는 것 자체가 잘못은 아니에요. 다만 “왜 그렇게 생각해?”라는 말은 상대에게 자신의 감정이 비난받는 듯 들릴 수 있어요. “어제 바빠서 확인을 못 했어. 기다리면서 걱정됐구나”처럼 사실을 설명하고 감정을 확인하면 대화를 이어가기 쉬워져요.','서해: 그냥 내가 너무 예민했나 봐…'],
+['아무 일 없었어 ㅋㅋ 신경 쓰지 마.','가볍게 분위기를 바꾸는 것도 한 방법이지만, “신경 쓰지 마”라는 말만 들으면 상대는 자신의 서운함을 더 이야기하기 어려울 수 있어요. “별일은 없었어. 그런데 기다리면서 걱정됐어?”라고 한마디 덧붙이면 오해를 풀 기회가 생겨요.','서해: 응… 알겠어.']
+]},
+{tag:'MISSION 1 · 나를 위한 마음',incoming:'상담의 생각',messages:['서해에게 답장을 보냈다.','그런데 나도 가끔 답장을 기다리면서 괜히 불안해질 때가 있다.'],prompt:'그럴 때 상담는 자기 마음을 어떻게 돌볼 수 있을까?',choices:[
+['서운한 건 사실이지만, 답장이 늦는 이유는 여러 가지일 수 있어.','“서운하다”는 감정은 실제지만, “나를 싫어한다”는 해석은 아직 확인되지 않은 추측일 수 있어요. 마음이 불안할 때는 ‘내가 아는 사실은 무엇인가?’, ‘다른 가능성은 없을까?’를 구분해 보세요. 감정을 억누르지 않으면서도 성급한 결론을 줄일 수 있어요.','상담: 내 마음도 살피고, 상대의 상황도 생각해 보자.'],
+['답장이 없으면 날 싫어하는 게 분명해.','답장이 없으면 거절당한 듯 느껴질 수 있어요. 하지만 그 느낌만으로 상대의 마음을 확정할 수는 없어요. 휴대폰을 잠시 내려놓고 다른 이유를 두세 가지 떠올려 보세요. 반복해서 불안하다면 편안한 때에 연락에 대한 기대를 서로 이야기하는 것도 방법이에요.','상담: 그래도 확인하기 전에는 모르는 일이겠지.'],
+['이런 감정은 유치하니까 무조건 참아야 해.','서운함을 느끼는 것은 유치하거나 잘못된 일이 아니에요. 감정을 무조건 참으면 내게 무엇이 중요한지 알아차리기 어려워질 수 있어요. “나는 답장을 기다리면서 조금 걱정됐어”처럼 비난 없이 표현할 수도 있고, 먼저 마음을 정리한 뒤 이야기해도 괜찮아요.','상담: 속상한 마음 자체를 탓하지는 말자.']
+]},
+{tag:'MISSION 2 · 너를 위한 마음',incoming:'서해',messages:['아까 괜히 예민하게 말했나 봐. 미안해.','사실 오늘 좀 힘든 일이 있었거든. 근데 아직 말할 준비는 안 됐어.'],prompt:'상담는 서해에게 어떤 말을 건넬까?',choices:[
+['괜찮아. 이야기하고 싶을 때 들을게.','상대가 아직 이야기할 준비가 되지 않았다는 말을 존중했어요. 공감은 반드시 이유를 알아내거나 문제를 해결해 주는 일이 아니에요. “말하고 싶을 때 들어줄게”라는 말은 상대가 스스로 이야기할 시점을 선택할 수 있게 해 줘요. 단, 안전이 걱정될 만큼 위험한 상황이라면 믿을 만한 어른의 도움을 함께 구하는 것이 필요해요.','서해: 고마워. 그렇게 말해 주니까 편하다.'],
+['친구끼리 비밀이 어딨어? 빨리 말해 봐.','친구를 걱정해서 자세한 사정을 알고 싶을 수 있어요. 하지만 친하다는 이유만으로 모든 이야기를 당장 나눠야 하는 것은 아니에요. “궁금하고 걱정되지만 지금 말하기 어렵다면 기다릴게”라고 표현하면 관심과 상대의 경계를 함께 지킬 수 있어요.','서해: 아직은 좀 어려워…'],
+['에이, 별일 아닐 거야. 잊어버려.','상대를 빨리 편하게 해 주고 싶은 마음에서 나온 말일 수 있어요. 그러나 “별일 아니야”는 상대에게 자신의 어려움이 가볍게 여겨진다고 느껴질 수 있어요. 상황을 정확히 몰라도 “그만큼 힘들었구나”라고 감정을 인정하는 것부터 시작할 수 있어요.','서해: 나한텐 좀 큰 일이긴 해.']
+]},
+{tag:'MISSION 2 · 너를 위한 마음',incoming:'서해',messages:['들어줘서 고마워.','오늘은 조금 혼자 쉬고 싶어. 내일 학교에서 봐도 될까?'],prompt:'마지막으로 상담는 어떻게 답할까?',choices:[
+['응, 푹 쉬어. 내일 보자! 필요하면 연락해.','상대가 원하는 휴식 시간을 존중하면서도 관계가 이어지고 있다는 메시지를 전했어요. 좋은 친구가 된다는 것은 늘 함께 있어 주는 것만을 뜻하지 않아요. 필요할 때 서로의 시간을 인정하고, 다음에 다시 만날 수 있다는 믿음을 주는 것도 배려예요.','서해: 응! 내일 보자 😊'],
+['아니, 친구면 지금 같이 있어 줘야지.','친구 곁에 있어 주고 싶은 마음은 소중해요. 다만 상대는 지금 혼자 쉬는 것이 더 도움이 된다고 말하고 있어요. 도움을 주고 싶을 때는 내가 해 주고 싶은 행동보다 상대가 원하는 방식을 먼저 물어보세요. “알겠어, 내일 보자”라는 말도 충분히 다정할 수 있어요.','서해: 미안, 오늘은 진짜 쉬고 싶어.'],
+['나랑 있기 싫다는 거구나. 알겠어.','상대가 거리를 두면 서운하거나 거절당한 것처럼 느껴질 수 있어요. 하지만 혼자 쉬고 싶다는 요청이 곧 나를 싫어한다는 뜻은 아니에요. 내 서운함은 인정하되 상대의 의도를 단정하지 않는 연습이 필요해요. “조금 아쉽지만 푹 쉬고 내일 보자”처럼 표현할 수도 있어요.','서해: 그런 뜻은 아니었어. 내일 이야기하자.']
+]}];
+let idx=0;
+const S=document.getElementById('screen'),F=document.getElementById('footer'),T=document.getElementById('step'),B=document.getElementById('bar');
+const KEY='friendship1111_received_v2';
+function btn(t,fn,cls=''){const b=document.createElement('button');b.textContent=t;b.className=cls;b.onclick=fn;return b}
+function clear(){S.replaceChildren();F.replaceChildren()}
+function p(t,cl=''){let e=document.createElement('p');e.textContent=t;e.className=cl;return e}
+function div(cl='',txt=''){let e=document.createElement('div');e.className=cl;e.textContent=txt;return e}
+function bubble(t,mine=false){return div('bubble'+(mine?' mine':''),t)}
+function start(){idx=0;clear();T.textContent='친구사랑주간';B.style.width='0%';
+S.append(div('pill','2026. 11. 11 · 친구사랑 프로젝트'));
+let h=document.createElement('h1');h.className='heading';h.textContent='11:11, 도착하지 않은 답장';S.append(h);
+S.append(p('오전 11시 11분. 상담의 휴대폰에 서해의 메시지가 도착했다.','small'),bubble('서해: 야, 혹시 지금 잠깐 이야기할 수 있어?'),p('상담와 서해의 대화를 따라가며 네 번의 선택을 해 보세요.','small'));
+F.append(btn('메시지 확인하기',render,'primary'));
+F.append(p('이름·연락처를 입력하지 않으며, 선택한 답변은 서버로 전송되지 않습니다.','warn'))}
+function render(){clear();const s=scenes[idx];T.textContent=`대화 ${idx+1} / ${scenes.length}`;B.style.width=(idx/scenes.length*100)+'%';
+S.append(div('time','11월 11일 · 오전 11:11'),div('pill',s.tag),p(s.incoming,'small'));
+s.messages.forEach(m=>S.append(bubble(m,idx===1)));
+let h=document.createElement('h2');h.className='heading';h.textContent=s.prompt;S.append(h);
+let opts=div('choices');s.choices.forEach((c,i)=>opts.append(btn(c[0],()=>choose(i))));S.append(opts)}
+function choose(i){const s=scenes[idx],c=s.choices[i];clear();B.style.width=((idx+1)/scenes.length*100)+'%';
+S.append(div('pill',`대화 ${idx+1} / ${scenes.length}`),bubble(c[0],true),bubble(c[2]));
+let f=div('feedback');let strong=document.createElement('strong');strong.textContent='이 선택을 함께 생각해 봐요';f.append(strong,p(c[1]));S.append(f);
+F.append(btn(idx===scenes.length-1?'마음 연결하기':'대화 계속하기',()=>{idx++;idx<scenes.length?render():finish()},'primary'))}
+function finish(){clear();T.textContent='미션 완료';B.style.width='100%';S.append(div('pill','1 + 1 = 우리'));
+let h=document.createElement('h1');h.className='heading';h.textContent='두 마음이 연결되었어요!';S.append(h,p('나를 이해하는 마음 하나, 타인을 존중하는 마음 하나. 작은 선택이 관계를 바꿀 수 있어요.','small'));
+const c=div('certificate');let x=document.createElement('h2');x.textContent='11:11 마음 연결 완료';c.append(x,p('나를 위한 1 + 너를 위한 1'),div('code','1 + 1 = 우리'),p('친구사랑 미션 4/4 완료','small'));S.append(c);
+let status=div('feedback');status.id='receiptStatus';S.append(status);
+S.append(p('상품 배부 담당 선생님이 아래 버튼으로 수령 여부를 확인할 수 있습니다.','small'));
+const receipt=btn('선생님: 상품 수령 확인',()=>{
+ try{localStorage.setItem(KEY,'yes')}catch(e){}
+ receiptComplete();
+},'primary');
+receipt.id='receiptBtn';F.append(receipt);
+F.append(btn('처음부터 다시 보기',start));
+S.append(p('※ 수령 기록은 이 기기·브라우저에만 저장됩니다. 다른 기기에서의 중복 수령은 확인할 수 없으므로 현장 수령 명단과 함께 사용하세요.','warn'));
+updateReceipt()}
+function updateReceipt(){let done=false;try{done=localStorage.getItem(KEY)==='yes'}catch(e){}document.getElementById('receiptStatus').textContent=done?'✓ 상품 수령 완료 · 이 기기에서 확인됨':'상품 미수령 · 선생님 확인 전';const b=document.getElementById('receiptBtn');b.disabled=done;b.textContent=done?'✓ 수령 확인 완료':'선생님: 상품 수령 확인'}
+function receiptComplete(){clear();T.textContent='수령 완료';B.style.width='100%';S.append(div('pill','11:11 · 수령 처리 완료'));let h=document.createElement('h1');h.className='heading';h.textContent='✓ 상품 수령 완료!';S.append(h,p('선생님이 상품 전달을 확인했습니다.','small'),div('certificate','1 + 1 = 우리 · 마음 연결 완료'));F.append(btn('처음 화면으로',start,'primary'))}
+start();
+</script></body></html>
