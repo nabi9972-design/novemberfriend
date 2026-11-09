@@ -59,5 +59,40 @@ S.append(p('※ 수령 기록은 이 기기·브라우저에만 저장됩니다.
 updateReceipt()}
 function updateReceipt(){let done=false;try{done=localStorage.getItem(KEY)==='yes'}catch(e){}document.getElementById('receiptStatus').textContent=done?'✓ 상품 수령 완료 · 이 기기에서 확인됨':'상품 미수령 · 선생님 확인 전';const b=document.getElementById('receiptBtn');b.disabled=done;b.textContent=done?'✓ 수령 확인 완료':'선생님: 상품 수령 확인'}
 function receiptComplete(){clear();T.textContent='수령 완료';B.style.width='100%';S.append(div('pill','11:11 · 수령 처리 완료'));let h=document.createElement('h1');h.className='heading';h.textContent='✓ 상품 수령 완료!';S.append(h,p('선생님이 상품 전달을 확인했습니다.','small'),div('certificate','1 + 1 = 우리 · 마음 연결 완료'));F.append(btn('처음 화면으로',start,'primary'))}
-start();
+
+const today = new Intl.DateTimeFormat('en-CA', {
+  timeZone: 'Asia/Seoul',
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit'
+}).format(new Date());
+
+if (today === '2026-11-11') {
+  start();
+} else {
+  clear();
+  T.textContent = '친구사랑행사';
+  B.style.width = '0%';
+
+  const h = document.createElement('h1');
+  h.className = 'heading';
+
+  if (today < '2026-11-11') {
+    h.textContent = '💌 11월 11일에 만나요!';
+    S.append(
+      div('pill', '친구사랑행사 · COMING SOON'),
+      h,
+      p('친구에게 마음을 전하는 특별한 미션이 곧 열립니다.'),
+      p('11월 11일에 다시 접속해 주세요! 💗')
+    );
+  } else {
+    h.textContent = '💗 이벤트가 종료되었습니다!';
+    S.append(
+      div('pill', '친구사랑행사 · CLOSED'),
+      h,
+      p('참여해 주셔서 감사합니다!')
+    );
+  }
+}
+
 </script></body></html>
